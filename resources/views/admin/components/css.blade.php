@@ -1,0 +1,3 @@
+<link rel="stylesheet" href="{{ ('assets/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ ('assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
+<link rel="stylesheet" href="{{ ('assets/css/style.css') }}">

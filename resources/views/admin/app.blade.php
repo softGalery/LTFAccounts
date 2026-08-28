@@ -14,7 +14,7 @@
       @include('admin.components.sidebar')
     <div class="admin-main">
         @include('admin.components.nav')
-
+        @yield('content')
 
       @include('admin.components.footer')
     </div>

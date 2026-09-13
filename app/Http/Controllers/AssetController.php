@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asset;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,11 +29,10 @@ class AssetController extends Controller
             'description' => 'required|string|max:255',
             'asset_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'type' => 'required|string|max:255',
-            'price' => 'required|numeric|max:255',
+            'price' => 'required|numeric|min:0',
             'purchase_date' => 'required|date',
             'estimated_lifetime' => 'required|numeric|max:255',
-            'location' => 'required|string|max:255',
-            'user_id' => 'required|string|max:255'
+            'location' => 'required|string|max:255'
         ]);
         try {
             $user_id = Auth::id();
@@ -65,7 +65,7 @@ class AssetController extends Controller
             ], 201);
 
         }
-        catch (\Exception $e) {
+        catch (Exception $e) {
             return response()->json([
                 'status' => 'error',
                 'message' => $e->getMessage()

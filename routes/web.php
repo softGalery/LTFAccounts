@@ -19,7 +19,7 @@ Route::middleware('auth')->group(function () {
 
     // This is assets section
     Route::get('/asset', [AssetController::class, 'index'])->name('asset.index');
-    Route::post('/asset-add', [AssetController::class, 'creatAsset'])->name('asset.store');
+    Route::post('/asset-add', [AssetController::class, 'creatAsset'])->name('assetStore');
 
 });
 

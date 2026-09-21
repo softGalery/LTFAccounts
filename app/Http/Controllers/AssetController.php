@@ -17,9 +17,10 @@ class AssetController extends Controller
     }
 
     // This method for asset list
-    public function assetList(Request $request)
+    public function allAsset()
     {
         $user_id = Auth::user()->id;
+        return Asset::where('user_id', $user_id)->get();
     }
 
     public function creatAsset(Request $request): JsonResponse
@@ -72,8 +73,6 @@ class AssetController extends Controller
             ], 500);
         }
     }
-
-
 
 
 }

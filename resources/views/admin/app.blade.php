@@ -9,6 +9,7 @@
 </head>
 
 <body>
+<span id="loader" class="loader"></span>
   <div class="admin-shell">
     <div class="sidebar-backdrop" data-sidebar-close></div>
       @include('admin.components.sidebar')
@@ -21,5 +22,6 @@
   </div>
 
 @include('admin.components.js')
+<script>loaderHide()</script>
 </body>
 </html>

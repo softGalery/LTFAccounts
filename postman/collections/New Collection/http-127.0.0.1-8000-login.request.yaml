@@ -1,0 +1,20 @@
+$kind: http-request
+name: http://127.0.0.1:8000/login
+description: ""
+url: |-
+  http://127.0.0.1:8000/asset-delete?file_path=uploads/asset/1-1790049679-1.PNG
+  	&id=1
+method: POST
+queryParams:
+  - key: file_path
+    value: "uploads/asset/1-1790049679-1.PNG\n\t"
+    disabled: false
+    description: ""
+  - key: id
+    value: "1"
+    disabled: false
+    description: ""
+body:
+  type: json
+  content: ""
+order: 1790232848328

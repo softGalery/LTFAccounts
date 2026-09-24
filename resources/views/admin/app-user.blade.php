@@ -9,6 +9,7 @@
 </head>
 
 <body class="auth-body">
+  <span id="loader" class="loader"></span>
   <button class="icon-button theme-toggle auth-theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme">
     <i class="bi bi-moon-stars" data-theme-icon aria-hidden="true"></i>
   </button>

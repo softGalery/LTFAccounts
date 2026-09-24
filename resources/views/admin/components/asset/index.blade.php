@@ -45,9 +45,11 @@
     </div>
 </main>
 <script>
-    loadershow();
+
     getAssetList();
     async function getAssetList() {
+
+
         let res = await axios.get("all-asset");
 
         let tableBody = $('#assetData');
@@ -70,7 +72,7 @@
                     <td class="fw-semibold">${asset['location']}</td>
                     <td class="fw-semibold">
                         <button data-path="${asset['asset_image']}" data-id="${asset['id']}" class="btn editBtn btn-sm btn-outline-primary rounded-5" type="button" data-bs-toggle="modal" data-bs-target="#updateBrand">Edit</button>
-                        <button data-path="${asset['asset_image']}" data-id="${asset['id']}" class="btn deleteBtn btn-sm btn-outline-danger rounded-5" data-bs-toggle="modal" data-bs-target="#deleteBrand">Delete</button>
+                        <button data-path="${asset['asset_image']}" data-id="${asset['id']}" class="btn assetDeleteBtn btn-sm btn-outline-danger rounded-5" data-bs-toggle="modal" data-bs-target="#assetDelete">Delete</button>
                     </td>
                  </tr>
 
@@ -84,6 +86,15 @@
                 lengthMenu: [10, 20, 30, { label: 'All', value: -1 }]
             });
         } );
+
+            $('.assetDeleteBtn').on('click', function (){
+            let id= $(this).data('id');
+            let path=$(this).data('path');
+            $("#assetDelete").modal('show');         // Show delete modal
+            $("#assetDeleteID").val(id);
+            $("#assetDeleteFilePath").val(path);
+            // get id into the delete modal input field
+        })
 
     }
 </script>

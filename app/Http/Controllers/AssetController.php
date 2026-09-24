@@ -7,6 +7,7 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class AssetController extends Controller
 {
@@ -69,9 +70,18 @@ class AssetController extends Controller
         catch (Exception $e) {
             return response()->json([
                 'status' => 'error',
-                'message' => $e->getMessage()
+                'message' => 'Failed to create asset'
             ], 500);
         }
+    }
+
+    public function deleteAsset(Request $request)
+    {
+        $user_id= Auth::id();
+        $asset_id=$request->input('id');
+        $filePath = $request->input('file_path');
+        File::delete($filePath);
+        return Asset::where('id',$asset_id)->where('user_id',$user_id)->delete();
     }
 
 

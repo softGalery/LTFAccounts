@@ -84,5 +84,71 @@ class AssetController extends Controller
         return Asset::where('id',$asset_id)->where('user_id',$user_id)->delete();
     }
 
+    public function updateAsset(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'asset_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'type' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'purchase_date' => 'required|date',
+            'estimated_lifetime' => 'required|numeric|max:255',
+            'location' => 'required|string|max:255'
+        ]);
+
+        $user_id = Auth::id();
+        $asset_id = $request->input('id');
+
+        // $asset = Asset::where('id', $asset_id)->where('user_id', $user_id)->first();
+
+    
+        if ($request->hasFile('asset_image')) {
+            // Save the new image
+            $img = $request->file('asset_image');
+            $t = time();
+            $file_name = $img->getClientOriginalName();
+            $img_name = "{$user_id}-{$t}-{$file_name}";
+            $img_url = "uploads/asset/{$img_name}";
+            $img->move(public_path('uploads/asset/'), $img_name);
+
+              // Delete the old image
+            $filePath = $request->input('file_path');
+            File::delete($filePath); 
+            
+            // Update the asset with the new image
+            Asset::where('id', $asset_id)->where('user_id', $user_id)->update([
+                'name' => $request->input('name'),
+                'description' => $request->input('description'),                                                                                            
+                'asset_image' => $img_url,
+                'type' => $request->input('type'),
+                'price' => $request->input('price'),
+                'purchase_date' => $request->input('purchase_date'),
+                'estimated_lifetime' => $request->input('estimated_lifetime'),
+                'location' => $request->input('location')
+            ]);
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Asset updated successfully'
+            ], 201);
+        }
+        else {
+            // Update the asset without changing the image
+            Asset::where('id', $asset_id)->where('user_id', $user_id)->update([
+                'name' => $request->input('name'),
+                'description' => $request->input('description'),
+                'type' => $request->input('type'),
+                'price' => $request->input('price'),
+                'purchase_date' => $request->input('purchase_date'),
+                'estimated_lifetime' => $request->input('estimated_lifetime'),
+                'location' => $request->input('location')
+            ]);
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Asset updated successfully'
+            ], 201);
+        }
+
+    }
 
 }

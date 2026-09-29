@@ -15,7 +15,8 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->validateCsrfTokens(except: [
             'login',
             'asset-add',
-            'asset-delete'
+            'asset-delete',
+            'asset-update'
         ]);
     })
 

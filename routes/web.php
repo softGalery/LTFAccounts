@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/all-asset', [AssetController::class, 'allAsset'])->name('asset.all');
     Route::post('/asset-add', [AssetController::class, 'creatAsset'])->name('assetStore');
     Route::post('/asset-delete', [AssetController::class, 'deleteAsset'])->name('assetDelete');
+    Route::post('/asset-update', [AssetController::class, 'updateAsset'])->name('assetUpdate');
 
 
 });

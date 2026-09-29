@@ -1,0 +1,68 @@
+$kind: http-request
+description: ""
+url: http://127.0.0.1:8000/asset-update?name=Cash&description=My Cash&asset_image&type&price&purchase_date&estimated_lifetime&location
+method: POST
+queryParams:
+  name: Cash
+  description: My Cash
+  asset_image: null
+  type: null
+  price: null
+  purchase_date: null
+  estimated_lifetime: null
+  location: null
+body:
+  type: formdata
+  content:
+    - type: text
+      key: name
+      value: Bank
+      description: ""
+      disabled: false
+    - type: text
+      key: description
+      value: My Cash
+      description: ""
+      disabled: false
+    - type: file
+      key: asset_image
+      src:
+        - /C:/Users/OS/Desktop/asad 009.jpeg
+      description: ""
+      disabled: false
+    - type: text
+      key: type
+      value: Fixed
+      description: ""
+      disabled: false
+    - type: text
+      key: price
+      value: "1200"
+      description: ""
+      disabled: false
+    - type: text
+      key: purchase_date
+      value: 2026-09-28
+      description: ""
+      disabled: false
+    - type: text
+      key: estimated_lifetime
+      value: "1"
+      description: ""
+      disabled: false
+    - type: text
+      key: location
+      value: BJJJj
+      description: ""
+      disabled: false
+    - type: text
+      key: id
+      value: "5"
+      description: ""
+      disabled: false
+    - type: text
+      key: filePath
+      value: uploads/asset/1-1790247114-1.PNG
+      description: ""
+      disabled: false
+order: 944565580282268

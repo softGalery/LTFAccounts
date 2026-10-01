@@ -24,6 +24,13 @@ class AssetController extends Controller
         return Asset::where('user_id', $user_id)->get();
     }
 
+    public function getAssetById(Request $request)
+    {
+        $user_id = Auth::id();
+        $asset_id = $request->input('id');
+        return Asset::where('id', $asset_id)->where('user_id', $user_id)->first();
+    }
+
     public function creatAsset(Request $request): JsonResponse
     {
         $request->validate([
@@ -130,7 +137,7 @@ class AssetController extends Controller
             return response()->json([
                 'status' => 'success',
                 'message' => 'Asset updated successfully'
-            ], 201);
+            ], 200);
         }
         else {
             // Update the asset without changing the image
@@ -146,7 +153,7 @@ class AssetController extends Controller
             return response()->json([
                 'status' => 'success',
                 'message' => 'Asset updated successfully'
-            ], 201);
+            ], 200);
         }
 
     }

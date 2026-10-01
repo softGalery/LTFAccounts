@@ -71,11 +71,10 @@
                     <td class="fw-semibold">${asset['estimated_lifetime']} years</td>
                     <td class="fw-semibold">${asset['location']}</td>
                     <td class="fw-semibold">
-                        <button data-path="${asset['asset_image']}" data-id="${asset['id']}" class="btn editBtn btn-sm btn-outline-primary rounded-5" type="button" data-bs-toggle="modal" data-bs-target="#updateBrand">Edit</button>
+                        <button data-path="${asset['asset_image']}" data-id="${asset['id']}" class="btn assetEditBtn btn-sm btn-outline-primary rounded-5" type="button" data-bs-toggle="modal" data-bs-target="#assetUpdate">Edit</button>
                         <button data-path="${asset['asset_image']}" data-id="${asset['id']}" class="btn assetDeleteBtn btn-sm btn-outline-danger rounded-5" data-bs-toggle="modal" data-bs-target="#assetDelete">Delete</button>
                     </td>
                  </tr>
-
             `
             tableList.append(row)
         });
@@ -87,13 +86,20 @@
             });
         } );
 
-            $('.assetDeleteBtn').on('click', function (){
+        $('.assetDeleteBtn').on('click', function (){
             let id= $(this).data('id');
             let path=$(this).data('path');
             $("#assetDelete").modal('show');         // Show delete modal
             $("#assetDeleteID").val(id);
             $("#assetDeleteFilePath").val(path);
             // get id into the delete modal input field
+        })
+
+        $('.assetEditBtn').on('click',async function (){
+            let id= $(this).data('id');
+            let path=$(this).data('path');
+            $("#assetUpdate").modal('show');         // Show delete modal
+            await getAssetById(id, path);
         })
 
     }

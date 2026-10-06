@@ -1,0 +1,14 @@
+$kind: http-request
+name: http://127.0.0.1:8000/asset-by-id
+description: ""
+url: http://127.0.0.1:8000/asset-by-id?id=5
+method: POST
+queryParams:
+  - key: id
+    value: "5"
+    disabled: false
+    description: ""
+body:
+  type: json
+  content: ""
+order: 2071536896401068

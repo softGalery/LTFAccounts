@@ -1,0 +1,18 @@
+$kind: http-request
+name: http://127.0.0.1:8000/login
+description: ""
+url: http://127.0.0.1:8000/login?email=dkroy2010@gmail.com&password=562210@Abc
+method: POST
+queryParams:
+  - key: email
+    value: dkroy2010@gmail.com
+    disabled: false
+    description: ""
+  - key: password
+    value: 562210@Abc
+    disabled: false
+    description: ""
+body:
+  type: json
+  content: ""
+order: 1790232848328

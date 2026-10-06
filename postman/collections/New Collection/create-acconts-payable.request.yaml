@@ -1,0 +1,9 @@
+$kind: http-request
+description: ""
+url: http://127.0.0.1:8000/create-acconts-payable
+method: POST
+body:
+  type: json
+  content: ""
+examples: .resources/create-acconts-payable.resources/examples
+order: 944565580282268

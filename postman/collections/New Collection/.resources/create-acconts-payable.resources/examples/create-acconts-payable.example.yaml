@@ -1,0 +1,1282 @@
+$kind: http-example
+request:
+  url: http://127.0.0.1:8000/create-acconts-payable
+  method: POST
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: name
+        value: Shayan ent
+        description: ""
+        disabled: false
+      - type: text
+        key: invoice_number
+        value: "25645534"
+        description: ""
+        disabled: false
+      - type: text
+        key: bill_date
+        value: 2026-09-28
+        description: ""
+        disabled: false
+      - type: text
+        key: due_date
+        value: 2026-09-28
+        description: ""
+        disabled: false
+      - type: text
+        key: description
+        value: Line materils
+        description: ""
+        disabled: false
+      - type: text
+        key: total_amount
+        value: "12000"
+        description: ""
+        disabled: false
+      - type: text
+        key: paid_amount
+        value: "500"
+        description: ""
+        disabled: false
+      - type: text
+        key: balance_amount
+        value: "11500"
+        description: ""
+        disabled: false
+      - type: text
+        key: status
+        value: Must will be paid 15
+        description: ""
+        disabled: false
+      - type: text
+        key: note
+        value: Ismail h
+        description: ""
+        disabled: false
+      - type: text
+        key: user_id
+        value: "1"
+        description: ""
+        disabled: false
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    - key: host
+      value: 127.0.0.1:8000
+    - key: connection
+      value: close
+    - key: x-powered-by
+      value: PHP/8.2.33
+    - key: content-type
+      value: text/html; charset=utf-8
+    - key: cache-control
+      value: no-cache, private
+    - key: date
+      value: Sun, 04 Oct 2026 10:24:37 GMT
+    - key: set-cookie
+      value: XSRF-TOKEN=eyJpdiI6InhyV1N4UHQ0VzNaOXRXYk82TUN6dWc9PSIsInZhbHVlIjoibjhCT2hLQThqWGplODRVdHdjYXplWnZwd0h5YWMvejdLR05YVnpHMzc2bmw3WEJDV0pVVFJBajMwZjdBUFBtaWNHN0xvVHFCeEFLQ2ZTQnRTWk5OMVRlR1FTTFdEeHdqZVdDM3c4YStSMFl6K0pudGtid3VtRGtocTJVNzBNTlkiLCJtYWMiOiI2ZjNmOTVhMDY0NWZkNTk1N2Q5ZTQ0OGZjYmJhMTVkMDZlNjVmMDQ1NTg0YzljOGUxMGFjZWUwZmM5YjkwZjQ5IiwidGFnIjoiIn0%3D; expires=Sun, 04 Oct 2026 12:24:37 GMT; Max-Age=7200; path=/; samesite=lax
+    - key: set-cookie
+      value: laravel-session=eyJpdiI6Ikp6SWMwWWJZNStyNTYyUWhNYmdFUlE9PSIsInZhbHVlIjoiUUVnSnI0NEU2dm9HMFhoa1c3c1ZCbGFpWWVzeWNyanladkVWU2NqSGtFV0lRalQ3bjRiZnhwU25qNkc4LzVSOG42b1FuK2RVZXJ0UGNRNldFazBvM0pGZW94UGwrTURrcjZPSXA0ZkRFaGhMS29JWHppZ0V3dzErWWg4cURiNWQiLCJtYWMiOiI5NzBkMzUxMDFjY2ZhNjM0ZjJkZDQ4OTcxMjcyODkzZDkxMjhkM2I4ZDYwNjk3ODhmZWZlMjM1OTdkNmQzZmQyIiwidGFnIjoiIn0%3D; expires=Sun, 04 Oct 2026 12:24:37 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+  body:
+    type: html
+    content: "<!DOCTYPE html>
+
+      <html lang=\"en\">
+
+      <head>
+
+      \  <meta charset=\"UTF-8\">
+
+      \  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+
+      \  <meta name=\"description\" content=\"adminHMD professional admin dashboard template\">
+
+      \  <title>Dashboard | adminHMD</title>
+
+      \    <link rel=\"stylesheet\" href=\"assets/css/bootstrap.min.css\">
+
+      <link rel=\"stylesheet\" href=\"assets/css/dataTables.dataTables.min.css\">
+
+      <link rel=\"stylesheet\" href=\"assets/vendors/bootstrap-icons/bootstrap-icons.css\">
+
+      <link rel=\"stylesheet\" href=\"assets/css/style.css\">
+
+      <link rel=\"stylesheet\" href=\"assets/css/toastify.min.css\">
+
+      <script src=\"assets/js/jquery-4.0.0.js\"></script>
+
+      <script src=\"assets/js/axios.min.js\"></script>
+
+      <script id=\"browser-logger-active\">\r
+
+      (function() {\r
+
+      \    const ENDPOINT = 'http://127.0.0.1:8000/_boost/browser-logs';\r
+
+      \    const logQueue = [];\r
+
+      \    let flushTimeout = null;\r
+
+      \    const captureTypes = [\"error\",\"warning\",\"info\",\"log\",\"debug\",\"table\"];\r
+
+      \r
+
+      \    console.log('🔍 Browser logger active (MCP server detected). Posting to: ' + ENDPOINT);\r
+
+      \r
+
+      \    // Store original console methods\r
+
+      \    const originalConsole = {\r
+
+      \        log: console.log,\r
+
+      \        debug: console.debug,\r
+
+      \        info: console.info,\r
+
+      \        error: console.error,\r
+
+      \        warn: console.warn,\r
+
+      \        table: console.table\r
+
+      \    };\r
+
+      \r
+
+      \    // Walk own enumerable keys so JSON.stringify cannot auto-invoke a proxy fake toJSON (e.g. Livewire's `$wire`) and fire a real request.\r
+
+      \    function toSafeValue(value, seen) {\r
+
+      \        if (value === null || typeof value !== 'object') {\r
+
+      \            return value;\r
+
+      \        }\r
+
+      \        if (value instanceof Error) {\r
+
+      \            return { name: value.name, message: value.message, stack: value.stack };\r
+
+      \        }\r
+
+      \        // Date has no own enumerable keys, so the walk below would collapse it to {}.\r
+
+      \        if (value instanceof Date) {\r
+
+      \            return value.toISOString();\r
+
+      \        }\r
+
+      \        if (seen.has(value)) {\r
+
+      \            return '[Circular]';\r
+
+      \        }\r
+
+      \        seen.add(value);\r
+
+      \        if (Array.isArray(value)) {\r
+
+      \            return value.map((item) => toSafeValue(item, seen));\r
+
+      \        }\r
+
+      \        const plain = {};\r
+
+      \        for (const key of Object.keys(value)) {\r
+
+      \            if (key === 'toJSON') continue;\r
+
+      \            try {\r
+
+      \                plain[key] = toSafeValue(value[key], seen);\r
+
+      \            } catch (e) {\r
+
+      \                plain[key] = '[Unreadable]';\r
+
+      \            }\r
+
+      \        }\r
+
+      \        return plain;\r
+
+      \    }\r
+
+      \r
+
+      \    // Helper to safely stringify values\r
+
+      \    function safeStringify(obj) {\r
+
+      \        return JSON.stringify(toSafeValue(obj, new WeakSet()));\r
+
+      \    }\r
+
+      \r
+
+      \    // Normalize log type for consistency (e.g., 'warn' to 'warning')\r
+
+      \    function normalizeType(type) {\r
+
+      \        return type === 'warn' ? 'warning' : type;\r
+
+      \    }\r
+
+      \r
+
+      \    // Determine if a log type should be captured based on configured levels\r
+
+      \    function shouldCapture(type) {\r
+
+      \        return captureTypes.includes(normalizeType(type));\r
+
+      \    }\r
+
+      \r
+
+      \    // Batch and send logs\r
+
+      \    function flushLogs() {\r
+
+      \        if (logQueue.length === 0) return;\r
+
+      \r
+
+      \        const batch = logQueue.splice(0, logQueue.length);\r
+
+      \r
+
+      \        fetch(ENDPOINT, {\r
+
+      \            method: 'POST',\r
+
+      \            headers: {\r
+
+      \                'Content-Type': 'application/json',\r
+
+      \                'X-Requested-With': 'XMLHttpRequest'\r
+
+      \            },\r
+
+      \            body: JSON.stringify({ logs: batch })\r
+
+      \        }).catch(err => {\r
+
+      \            // Silently fail to avoid infinite loops\r
+
+      \            originalConsole.error('Failed to send logs:', err);\r
+
+      \        });\r
+
+      \    }\r
+
+      \r
+
+      \    // Debounced flush (100ms)\r
+
+      \    function scheduleFlush() {\r
+
+      \        if (flushTimeout) clearTimeout(flushTimeout);\r
+
+      \        flushTimeout = setTimeout(flushLogs, 100);\r
+
+      \    }\r
+
+      \r
+
+      \    // Intercept console methods\r
+
+      \    ['log', 'debug', 'info', 'error', 'warn', 'table'].forEach(method => {\r
+
+      \        console[method] = function(...args) {\r
+
+      \            // Call original method\r
+
+      \            originalConsole[method].apply(console, args);\r
+
+      \r
+
+      \            // Capture log data\r
+
+      \            try {\r
+
+      \                if (!shouldCapture(method)) {\r
+
+      \                    return;\r
+
+      \                }\r
+
+      \r
+
+      \                logQueue.push({\r
+
+      \                    type: method,\r
+
+      \                    timestamp: new Date().toISOString(),\r
+
+      \                    data: args.map(arg => {\r
+
+      \                        try {\r
+
+      \                            return typeof arg === 'object' ? JSON.parse(safeStringify(arg)) : arg;\r
+
+      \                        } catch (e) {\r
+
+      \                            return String(arg);\r
+
+      \                        }\r
+
+      \                    }),\r
+
+      \                    url: window.location.href,\r
+
+      \                    userAgent: navigator.userAgent\r
+
+      \                });\r
+
+      \r
+
+      \                scheduleFlush();\r
+
+      \            } catch (e) {\r
+
+      \                // Fail silently\r
+
+      \            }\r
+
+      \        };\r
+
+      \    });\r
+
+      \r
+
+      \    // Global error handlers for uncaught errors\r
+
+      \    const originalOnError = window.onerror;\r
+
+      \    window.onerror = function boostErrorHandler(errorMsg, url, lineNumber, colNumber, error) {\r
+
+      \        try {\r
+
+      \            if (shouldCapture('error')) {\r
+
+      \                logQueue.push({\r
+
+      \                    type: 'uncaught_error',\r
+
+      \                    timestamp: new Date().toISOString(),\r
+
+      \                    data: [{\r
+
+      \                        message: errorMsg,\r
+
+      \                        filename: url,\r
+
+      \                        lineno: lineNumber,\r
+
+      \                        colno: colNumber,\r
+
+      \                        error: error ? {\r
+
+      \                            name: error.name,\r
+
+      \                            message: error.message,\r
+
+      \                            stack: error.stack\r
+
+      \                        } : null\r
+
+      \                    }],\r
+
+      \                    url: window.location.href,\r
+
+      \                    userAgent: navigator.userAgent\r
+
+      \                });\r
+
+      \r
+
+      \                scheduleFlush();\r
+
+      \            }\r
+
+      \r
+
+      \        } catch (e) {\r
+
+      \            // Fail silently\r
+
+      \        }\r
+
+      \r
+
+      \        // Call original handler if it exists\r
+
+      \        if (originalOnError && typeof originalOnError === 'function') {\r
+
+      \            return originalOnError(errorMsg, url, lineNumber, colNumber, error);\r
+
+      \        }\r
+
+      \r
+
+      \        // Let the error continue to propagate\r
+
+      \        return false;\r
+
+      \    }\r
+
+      \    window.addEventListener('error', (event) => {\r
+
+      \        try {\r
+
+      \            if (!shouldCapture('error')) {\r
+
+      \                return false;\r
+
+      \            }\r
+
+      \r
+
+      \            logQueue.push({\r
+
+      \                type: 'window_error',\r
+
+      \                timestamp: new Date().toISOString(),\r
+
+      \                data: [{\r
+
+      \                    message: event.message,\r
+
+      \                    filename: event.filename,\r
+
+      \                    lineno: event.lineno,\r
+
+      \                    colno: event.colno,\r
+
+      \                    error: event.error ? {\r
+
+      \                        name: event.error.name,\r
+
+      \                        message: event.error.message,\r
+
+      \                        stack: event.error.stack\r
+
+      \                    } : null\r
+
+      \                }],\r
+
+      \                url: window.location.href,\r
+
+      \                userAgent: navigator.userAgent\r
+
+      \            });\r
+
+      \r
+
+      \            scheduleFlush();\r
+
+      \        } catch (e) {\r
+
+      \            // Fail silently\r
+
+      \        }\r
+
+      \r
+
+      \        // Let the error continue to propagate\r
+
+      \        return false;\r
+
+      \    });\r
+
+      \    window.addEventListener('unhandledrejection', (event) => {\r
+
+      \        try {\r
+
+      \            if (!shouldCapture('error')) {\r
+
+      \                return false;\r
+
+      \            }\r
+
+      \r
+
+      \            logQueue.push({\r
+
+      \                type: 'error',\r
+
+      \                timestamp: new Date().toISOString(),\r
+
+      \                data: [{\r
+
+      \                    message: 'Unhandled Promise Rejection',\r
+
+      \                    reason: toSafeValue(event.reason, new WeakSet())\r
+
+      \                }],\r
+
+      \                url: window.location.href,\r
+
+      \                userAgent: navigator.userAgent\r
+
+      \            });\r
+
+      \r
+
+      \            scheduleFlush();\r
+
+      \        } catch (e) {\r
+
+      \            // Fail silently\r
+
+      \        }\r
+
+      \r
+
+      \        // Let the rejection continue to propagate\r
+
+      \        return false;\r
+
+      \    });\r
+
+      \r
+
+      \    // Flush on page unload\r
+
+      \    window.addEventListener('beforeunload', () => {\r
+
+      \        if (logQueue.length > 0) {\r
+
+      \            navigator.sendBeacon(ENDPOINT, JSON.stringify({ logs: logQueue }));\r
+
+      \        }\r
+
+      \    });\r
+
+      })();\r
+
+      </script>
+
+      </head>
+
+
+      <body>
+
+      <span id=\"loader\" class=\"loader\"></span>
+
+      \  <div class=\"admin-shell\">
+
+      \    <div class=\"sidebar-backdrop\" data-sidebar-close></div>
+
+      \      <aside class=\"admin-sidebar\" id=\"adminSidebar\" aria-label=\"Main navigation\">
+
+      \    <div class=\"sidebar-header\">
+
+      \        <a class=\"brand-mark\" href=\"index.html\" aria-label=\"adminHMD dashboard\">
+
+      \            <span class=\"brand-icon\"><i class=\"bi bi-grid-1x2-fill\" aria-hidden=\"true\"></i></span>
+
+      \            <span class=\"brand-copy\">
+
+      \            <span class=\"brand-title\">adminHMD</span>
+
+      \            <span class=\"brand-subtitle\">Admin Template</span>
+
+      \          </span>
+
+      \        </a>
+
+      \    </div>
+
+
+      \    <nav class=\"sidebar-nav\">
+
+      \        <a class=\"nav-link active\" href=\"index.html\" aria-current=\"page\">
+
+      \            <span class=\"nav-icon\"><i class=\"bi bi-speedometer2\" aria-hidden=\"true\"></i></span>
+
+      \            <span class=\"nav-text\">Dashboard</span>
+
+      \        </a>
+
+      \        <a class=\"nav-link\" href=\"users.html\">
+
+      \            <span class=\"nav-icon\"><i class=\"bi bi-people\" aria-hidden=\"true\"></i></span>
+
+      \            <span class=\"nav-text\">Users</span>
+
+      \        </a>
+
+      \        <a class=\"nav-link\" href=\"add-user.html\">
+
+      \            <span class=\"nav-icon\"><i class=\"bi bi-person-plus\" aria-hidden=\"true\"></i></span>
+
+      \            <span class=\"nav-text\">Add User</span>
+
+      \        </a>
+
+      \        <a class=\"nav-link\" href=\"profile.html\">
+
+      \            <span class=\"nav-icon\"><i class=\"bi bi-person-badge\" aria-hidden=\"true\"></i></span>
+
+      \            <span class=\"nav-text\">Profile</span>
+
+      \        </a>
+
+      \        <a class=\"nav-link\" href=\"charts.html\">
+
+      \            <span class=\"nav-icon\"><i class=\"bi bi-bar-chart-line\" aria-hidden=\"true\"></i></span>
+
+      \            <span class=\"nav-text\">Charts</span>
+
+      \        </a>
+
+      \        <a class=\"nav-link\" href=\"tables.html\">
+
+      \            <span class=\"nav-icon\"><i class=\"bi bi-table\" aria-hidden=\"true\"></i></span>
+
+      \            <span class=\"nav-text\">Tables</span>
+
+      \        </a>
+
+      \        <a class=\"nav-link\" href=\"forms.html\">
+
+      \            <span class=\"nav-icon\"><i class=\"bi bi-ui-checks-grid\" aria-hidden=\"true\"></i></span>
+
+      \            <span class=\"nav-text\">Forms</span>
+
+      \        </a>
+
+      \        <a class=\"nav-link\" href=\"components.html\">
+
+      \            <span class=\"nav-icon\"><i class=\"bi bi-grid-3x3-gap\" aria-hidden=\"true\"></i></span>
+
+      \            <span class=\"nav-text\">Components</span>
+
+      \        </a>
+
+      \        <a class=\"nav-link\" href=\"alerts.html\">
+
+      \            <span class=\"nav-icon\"><i class=\"bi bi-exclamation-triangle\" aria-hidden=\"true\"></i></span>
+
+      \            <span class=\"nav-text\">Alerts</span>
+
+      \        </a>
+
+      \        <a class=\"nav-link\" href=\"modals.html\">
+
+      \            <span class=\"nav-icon\"><i class=\"bi bi-window-stack\" aria-hidden=\"true\"></i></span>
+
+      \            <span class=\"nav-text\">Modals</span>
+
+      \        </a>
+
+      \        <a class=\"nav-link\" href=\"settings.html\">
+
+      \            <span class=\"nav-icon\"><i class=\"bi bi-gear\" aria-hidden=\"true\"></i></span>
+
+      \            <span class=\"nav-text\">Settings</span>
+
+      \        </a>
+
+      \        <a class=\"nav-link\" href=\"blank.html\">
+
+      \            <span class=\"nav-icon\"><i class=\"bi bi-file-earmark\" aria-hidden=\"true\"></i></span>
+
+      \            <span class=\"nav-text\">Blank Page</span>
+
+      \        </a>
+
+      \    </nav>
+
+
+      \    <div class=\"sidebar-user\">
+
+      \        <img class=\"avatar-img avatar-md sidebar-user-avatar\" src=\"assets/images/avatar/avatar.jpg\" alt=\"Admin Hasan\">
+
+      \        <strong>Admin Hasan</strong>
+
+      \        <small>Active Workspace</small>
+
+      \    </div>
+
+
+      \    <div class=\"sidebar-footer\">
+
+      \        <span class=\"status-dot\"></span>
+
+      \        <span class=\"sidebar-footer-text\">System running smoothly</span>
+
+      \    </div>
+
+      </aside>
+
+      \    <div class=\"admin-main\">
+
+      \        <nav class=\"navbar admin-navbar navbar-expand bg-white\">
+
+      \    <div class=\"container-fluid px-3 px-lg-4\">
+
+      \        <button class=\"sidebar-toggle\" type=\"button\" data-sidebar-toggle aria-controls=\"adminSidebar\" aria-expanded=\"true\" aria-label=\"Toggle sidebar\">
+
+      \            <span></span>
+
+      \            <span></span>
+
+      \            <span></span>
+
+      \        </button>
+
+
+      \        <form class=\"d-none d-md-flex ms-3 flex-grow-1\" role=\"search\">
+
+      \            <input class=\"form-control search-input\" type=\"search\" placeholder=\"Search users, orders, reports\" aria-label=\"Search\">
+
+      \        </form>
+
+
+      \        <div class=\"navbar-actions ms-auto\">
+
+      \            <button class=\"icon-button theme-toggle\" type=\"button\" data-theme-toggle aria-label=\"Switch color theme\" title=\"Switch color theme\">
+
+      \                <i class=\"bi bi-moon-stars\" data-theme-icon aria-hidden=\"true\"></i>
+
+      \            </button>
+
+      \            <div class=\"dropdown\">
+
+      \                <button class=\"icon-button\" type=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\" aria-label=\"Notifications\">
+
+      \                    <span class=\"notification-dot\"></span>
+
+      \                    <i class=\"bi bi-bell\" aria-hidden=\"true\"></i>
+
+      \                </button>
+
+      \                <div class=\"dropdown-menu dropdown-menu-end notification-menu\">
+
+      \                    <div class=\"dropdown-header fw-bold text-body\">Notifications</div>
+
+      \                    <a class=\"dropdown-item\" href=\"users.html\">
+
+      \                        <span class=\"notification-title\">New user registered</span>
+
+      \                        <span class=\"notification-time\">4 minutes ago</span>
+
+      \                    </a>
+
+      \                    <a class=\"dropdown-item\" href=\"charts.html\">
+
+      \                        <span class=\"notification-title\">Revenue target reached</span>
+
+      \                        <span class=\"notification-time\">32 minutes ago</span>
+
+      \                    </a>
+
+      \                    <a class=\"dropdown-item\" href=\"settings.html\">
+
+      \                        <span class=\"notification-title\">Security review completed</span>
+
+      \                        <span class=\"notification-time\">1 hour ago</span>
+
+      \                    </a>
+
+      \                </div>
+
+      \            </div>
+
+
+      \            <div class=\"dropdown\">
+
+      \                <button class=\"profile-button dropdown-toggle\" type=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
+
+      \                    <img class=\"avatar-img avatar-sm\" src=\"assets/images/avatar/avatar.jpg\" alt=\"Admin Hasan\">
+
+      \                    <span class=\"profile-name d-none d-sm-inline\">Admin Hasan</span>
+
+      \                </button>
+
+      \                <ul class=\"dropdown-menu dropdown-menu-end\">
+
+      \                    <li><a class=\"dropdown-item\" href=\"profile.html\">Profile</a></li>
+
+      \                    <li><a class=\"dropdown-item\" href=\"settings.html\">Account settings</a></li>
+
+      \                    <li><hr class=\"dropdown-divider\"></li>
+
+      \                    <li>
+
+      \                        <form class=\"dropdown-item\" method=\"POST\" action=\"http://127.0.0.1:8000/logout\">
+
+      \                            <input type=\"hidden\" name=\"_token\" value=\"NKivbExhL3mFHRimiG0GnsAL4WX720z0ARsqnSYl\" autocomplete=\"off\">                            <button type=\"submit\" class=\"dropdown-item\">
+
+      \                                Sign out
+
+      \                            </button>
+
+      \                        </form>
+
+      \                    </li>
+
+      \                </ul>
+
+      \            </div>
+
+      \        </div>
+
+      \    </div>
+
+      </nav>
+
+      \            <main class=\"dashboard-content\">
+
+      \        <div class=\"container-fluid px-3 px-lg-4 py-4\">
+
+      \            <div class=\"page-heading\">
+
+      \                <div class=\"page-heading-copy\">
+
+      \                    <span class=\"page-icon\"><i class=\"bi bi-speedometer2\" aria-hidden=\"true\"></i></span>
+
+      \                    <div>
+
+      \                        <p class=\"eyebrow mb-1\">Overview</p>
+
+      \                        <h1 class=\"h3 mb-1\">Dashboard</h1>
+
+      \                        <p class=\"text-muted mb-0\">Monitor performance, sales, users, and support from one clean workspace.</p>
+
+      \                    </div>
+
+      \                </div>
+
+      \                <div class=\"heading-actions\"><button class=\"btn btn-outline-secondary btn-sm\" type=\"button\"><i class=\"bi bi-download\" aria-hidden=\"true\"></i> Export</button><button class=\"btn btn-primary btn-sm\" type=\"button\"><i class=\"bi bi-file-earmark-plus\" aria-hidden=\"true\"></i> Create Report</button></div>
+
+      \            </div>
+
+
+      \            <section class=\"row g-3 mt-1\" aria-label=\"Dashboard metrics\">
+
+      \                <div class=\"col-12 col-sm-6 col-xl-3\">
+
+      \                    <article class=\"metric-card metric-primary\">
+
+      \                        <div class=\"metric-top\">
+
+      \                            <span class=\"metric-label\">Revenue</span>
+
+      \                            <span class=\"metric-icon\"><i class=\"bi bi-currency-dollar\" aria-hidden=\"true\"></i></span>
+
+      \                        </div>
+
+      \                        <div class=\"metric-value\">$48,240</div>
+
+      \                        <div class=\"metric-meta\">
+
+      \                            <span class=\"text-success\">+12.5%</span>
+
+      \                            <span>from last month</span>
+
+      \                        </div>
+
+      \                    </article>
+
+      \                </div>
+
+
+      \                <div class=\"col-12 col-sm-6 col-xl-3\">
+
+      \                    <article class=\"metric-card metric-success\">
+
+      \                        <div class=\"metric-top\">
+
+      \                            <span class=\"metric-label\">Orders</span>
+
+      \                            <span class=\"metric-icon\"><i class=\"bi bi-bag-check\" aria-hidden=\"true\"></i></span>
+
+      \                        </div>
+
+      \                        <div class=\"metric-value\">1,284</div>
+
+      \                        <div class=\"metric-meta\">
+
+      \                            <span class=\"text-success\">+8.2%</span>
+
+      \                            <span>new orders</span>
+
+      \                        </div>
+
+      \                    </article>
+
+      \                </div>
+
+
+      \                <div class=\"col-12 col-sm-6 col-xl-3\">
+
+      \                    <article class=\"metric-card metric-warning\">
+
+      \                        <div class=\"metric-top\">
+
+      \                            <span class=\"metric-label\">Customers</span>
+
+      \                            <span class=\"metric-icon\"><i class=\"bi bi-people\" aria-hidden=\"true\"></i></span>
+
+      \                        </div>
+
+      \                        <div class=\"metric-value\">8,742</div>
+
+      \                        <div class=\"metric-meta\">
+
+      \                            <span class=\"text-success\">+5.1%</span>
+
+      \                            <span>active users</span>
+
+      \                        </div>
+
+      \                    </article>
+
+      \                </div>
+
+
+      \                <div class=\"col-12 col-sm-6 col-xl-3\">
+
+      \                    <article class=\"metric-card metric-danger\">
+
+      \                        <div class=\"metric-top\">
+
+      \                            <span class=\"metric-label\">Tickets</span>
+
+      \                            <span class=\"metric-icon\"><i class=\"bi bi-life-preserver\" aria-hidden=\"true\"></i></span>
+
+      \                        </div>
+
+      \                        <div class=\"metric-value\">36</div>
+
+      \                        <div class=\"metric-meta\">
+
+      \                            <span class=\"text-danger\">3 urgent</span>
+
+      \                            <span>need review</span>
+
+      \                        </div>
+
+      \                    </article>
+
+      \                </div>
+
+      \            </section>
+
+
+      \            <section class=\"row g-3 mt-1\">
+
+      \                <div class=\"col-12 col-xl-8\">
+
+      \                    <div class=\"panel\">
+
+      \                        <div class=\"panel-header\">
+
+      \                            <div>
+
+      \                                <h2 class=\"h5 mb-1 section-title\"><i class=\"bi bi-graph-up-arrow\" aria-hidden=\"true\"></i><span>Sales Performance</span></h2>
+
+      \                                <p class=\"text-muted mb-0\">Monthly revenue compared with operational targets.</p>
+
+      \                            </div>
+
+      \                            <a class=\"btn btn-light btn-sm\" href=\"charts.html\">View Details</a>
+
+      \                        </div>
+
+
+      \                        <div class=\"chart-bars\" aria-label=\"Sales performance chart\">
+
+      \                            <div class=\"chart-column bar-42\"><span></span><small>Jan</small></div>
+
+      \                            <div class=\"chart-column bar-58\"><span></span><small>Feb</small></div>
+
+      \                            <div class=\"chart-column bar-51\"><span></span><small>Mar</small></div>
+
+      \                            <div class=\"chart-column bar-72\"><span></span><small>Apr</small></div>
+
+      \                            <div class=\"chart-column bar-66\"><span></span><small>May</small></div>
+
+      \                            <div class=\"chart-column bar-83\"><span></span><small>Jun</small></div>
+
+      \                        </div>
+
+      \                    </div>
+
+      \                </div>
+
+
+      \                <div class=\"col-12 col-xl-4\">
+
+      \                    <div class=\"panel h-100\">
+
+      \                        <div class=\"panel-header\">
+
+      \                            <div>
+
+      \                                <h2 class=\"h5 mb-1 section-title\"><i class=\"bi bi-activity\" aria-hidden=\"true\"></i><span>Team Activity</span></h2>
+
+      \                                <p class=\"text-muted mb-0\">Recent operational updates.</p>
+
+      \                            </div>
+
+      \                        </div>
+
+
+      \                        <div class=\"activity-list\">
+
+      \                            <div class=\"activity-item\"><span class=\"activity-dot bg-primary\"></span><div><p class=\"mb-1 fw-semibold\">New campaign launched</p><p class=\"text-muted small mb-0\">Marketing team published the May offer.</p></div></div>
+
+      \                            <div class=\"activity-item\"><span class=\"activity-dot bg-success\"></span><div><p class=\"mb-1 fw-semibold\">Payment batch cleared</p><p class=\"text-muted small mb-0\">246 invoices were processed successfully.</p></div></div>
+
+      \                            <div class=\"activity-item\"><span class=\"activity-dot bg-warning\"></span><div><p class=\"mb-1 fw-semibold\">Support queue rising</p><p class=\"text-muted small mb-0\">Average first response time is 18 minutes.</p></div></div>
+
+      \                        </div>
+
+      \                    </div>
+
+      \                </div>
+
+      \            </section>
+
+
+      \            <section class=\"panel mt-3\">
+
+      \                <div class=\"panel-header\">
+
+      \                    <div>
+
+      \                        <h2 class=\"h5 mb-1 section-title\"><i class=\"bi bi-people\" aria-hidden=\"true\"></i><span>Recent Users</span></h2>
+
+      \                        <p class=\"text-muted mb-0\">Latest account activity across the workspace.</p>
+
+      \                    </div>
+
+      \                    <a class=\"btn btn-outline-secondary btn-sm\" href=\"users.html\">Manage Users</a>
+
+      \                </div>
+
+      \                <div class=\"table-responsive\">
+
+      \                    <table class=\"table align-middle mb-0\">
+
+      \                        <thead><tr><th scope=\"col\">User</th><th scope=\"col\">Role</th><th scope=\"col\">Team</th><th scope=\"col\">Status</th><th scope=\"col\">Joined</th><th scope=\"col\" class=\"text-end\">Action</th></tr></thead>
+
+      \                        <tbody>
+
+      \                        <tr>
+
+      \                            <td>
+
+      \                                <div class=\"d-flex align-items-center gap-2\">
+
+      \                                    <img class=\"avatar-img avatar-sm\" src=\"assets/images/avatar/avatar-1.jpg\" alt=\"Sarah Ahmed\">
+
+      \                                    <div>
+
+      \                                        <p class=\"fw-semibold mb-0\">Sarah Ahmed</p>
+
+      \                                        <p class=\"text-muted small mb-0\">sarah@example.com</p>
+
+      \                                    </div>
+
+      \                                </div>
+
+      \                            </td>
+
+      \                            <td>Admin</td>
+
+      \                            <td>Operations</td>
+
+      \                            <td><span class=\"badge text-bg-success\">Active</span></td>
+
+      \                            <td>Jan 12, 2026</td>
+
+      \                            <td class=\"text-end\"><a class=\"btn btn-light btn-sm\" href=\"user-details.html\">View</a></td>
+
+      \                        </tr>
+
+      \                        <tr>
+
+      \                            <td>
+
+      \                                <div class=\"d-flex align-items-center gap-2\">
+
+      \                                    <img class=\"avatar-img avatar-sm\" src=\"assets/images/avatar/avatar-2.jpg\" alt=\"Rafi Khan\">
+
+      \                                    <div>
+
+      \                                        <p class=\"fw-semibold mb-0\">Rafi Khan</p>
+
+      \                                        <p class=\"text-muted small mb-0\">rafi@example.com</p>
+
+      \                                    </div>
+
+      \                                </div>
+
+      \                            </td>
+
+      \                            <td>Manager</td>
+
+      \                            <td>Sales</td>
+
+      \                            <td><span class=\"badge text-bg-success\">Active</span></td>
+
+      \                            <td>Feb 03, 2026</td>
+
+      \                            <td class=\"text-end\"><a class=\"btn btn-light btn-sm\" href=\"user-details.html\">View</a></td>
+
+      \                        </tr>
+
+      \                        <tr>
+
+      \                            <td>
+
+      \                                <div class=\"d-flex align-items-center gap-2\">
+
+      \                                    <img class=\"avatar-img avatar-sm\" src=\"assets/images/avatar/avatar-3.jpg\" alt=\"Nadia Islam\">
+
+      \                                    <div>
+
+      \                                        <p class=\"fw-semibold mb-0\">Nadia Islam</p>
+
+      \                                        <p class=\"text-muted small mb-0\">nadia@example.com</p>
+
+      \                                    </div>
+
+      \                                </div>
+
+      \                            </td>
+
+      \                            <td>Editor</td>
+
+      \                            <td>Content</td>
+
+      \                            <td><span class=\"badge text-bg-warning\">Pending</span></td>
+
+      \                            <td>Mar 18, 2026</td>
+
+      \                            <td class=\"text-end\"><a class=\"btn btn-light btn-sm\" href=\"user-details.html\">View</a></td>
+
+      \                        </tr>
+
+      \                        <tr>
+
+      \                            <td>
+
+      \                                <div class=\"d-flex align-items-center gap-2\">
+
+      \                                    <img class=\"avatar-img avatar-sm\" src=\"assets/images/avatar/avatar-4.jpg\" alt=\"Mina Torres\">
+
+      \                                    <div>
+
+      \                                        <p class=\"fw-semibold mb-0\">Mina Torres</p>
+
+      \                                        <p class=\"text-muted small mb-0\">mina@example.com</p>
+
+      \                                    </div>
+
+      \                                </div>
+
+      \                            </td>
+
+      \                            <td>Viewer</td>
+
+      \                            <td>Finance</td>
+
+      \                            <td><span class=\"badge text-bg-secondary\">Suspended</span></td>
+
+      \                            <td>Apr 07, 2026</td>
+
+      \                            <td class=\"text-end\"><a class=\"btn btn-light btn-sm\" href=\"user-details.html\">View</a></td>
+
+      \                        </tr>
+
+      \                        <tr>
+
+      \                            <td>
+
+      \                                <div class=\"d-flex align-items-center gap-2\">
+
+      \                                    <img class=\"avatar-img avatar-sm\" src=\"assets/images/avatar/avatar-5.jpg\" alt=\"Jon Oliver\">
+
+      \                                    <div>
+
+      \                                        <p class=\"fw-semibold mb-0\">Jon Oliver</p>
+
+      \                                        <p class=\"text-muted small mb-0\">jon@example.com</p>
+
+      \                                    </div>
+
+      \                                </div>
+
+      \                            </td>
+
+      \                            <td>Analyst</td>
+
+      \                            <td>Data</td>
+
+      \                            <td><span class=\"badge text-bg-success\">Active</span></td>
+
+      \                            <td>Apr 22, 2026</td>
+
+      \                            <td class=\"text-end\"><a class=\"btn btn-light btn-sm\" href=\"user-details.html\">View</a></td>
+
+      \                        </tr>
+
+      \                        </tbody>
+
+      \                    </table>
+
+      \                </div>
+
+      \            </section>
+
+      \        </div>
+
+      \    </main>
+
+
+      \      <footer class=\"admin-footer\">
+
+      \    <div class=\"container-fluid px-3 px-lg-4\">
+
+      \        <span>Copyright 2026 adminHMD. <br> Developed by <a target=\"_blank\" class=\"fw-bold text-success\" href=\"https://github.com/HasanMahmudDev\">Md. Hasan Mahmud</a> • Distributed by <a target=\"_blank\" class=\"fw-bold text-success\" href=\"https://themewagon.com\">ThemeWagon</a> </span>
+
+      \        <span>Professional dashboard template.</span>
+
+      \    </div>
+
+      </footer>
+
+      \    </div>
+
+      \  </div>
+
+
+      <script src=\"assets/js/dataTables.min.js\"></script>
+
+      <script src=\"assets/js/bootstrap.bundle.min.js\"></script>
+
+      <script src=\"assets/js/main.js\"></script>
+
+      <script src=\"assets/js/toastify.min.js\"></script>
+
+      <script src=\"assets/js/config.js\"></script>
+
+      <script>loaderHide()</script>
+
+      </body>
+
+      </html>\n"
+order: 1791109846700

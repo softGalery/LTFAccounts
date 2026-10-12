@@ -17,8 +17,6 @@ class AccountsPayable extends Model
         'balance_amount',
         'status',
         'note',
-        'user_id',
-        'balance',
-        'notes'
+        'user_id'
     ];
 }

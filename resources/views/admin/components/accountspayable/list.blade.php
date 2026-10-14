@@ -5,7 +5,7 @@
         <section class="panel">
             <div class="panel-header"><div><h2 class="h5 mb-1 section-title"><i class="bi bi-table" aria-hidden="true"></i><span>List of Accounts Payable</span></h2><p class="text-muted mb-0">Searchable responsive table for orders and customer data.</p></div>
                 <div class="create-asset">
-                    <button type="button" class="btn btn-success display-flex float-end" data-bs-toggle="modal" data-bs-target="#acountsPayableCreate">Add New Asset</button>
+                    <button type="button" class="btn btn-success display-flex float-end" data-bs-toggle="modal" data-bs-target="#acountsPayableCreate">Add New Accounts Payable</button>
                 </div>
             </div>
 
@@ -63,7 +63,7 @@
                     <td class="fw-semibold">${acItem['status']}</td>
                     <td class="fw-semibold">${acItem['note']}</td>
                     <td class="fw-semibold">
-                        <button data-id="${acItem['id']}" class="btn acPayEditBtn btn-sm btn-outline-primary rounded-5" type="button" data-bs-toggle="modal" data-bs-target="#acPayUpdate">Edit</button>
+                        <button data-id="${acItem['id']}" class="btn acPayUpdateBtn btn-sm btn-outline-primary rounded-5" type="button" data-bs-toggle="modal" data-bs-target="#acPayUpdate">Edit</button>
                         <button data-id="${acItem['id']}" class="btn acPayDeleteBtn btn-sm btn-outline-danger rounded-5" data-bs-toggle="modal" data-bs-target="#acPayDelete">Delete</button>
                     </td>
                 </tr>`;
@@ -76,6 +76,13 @@
                 lengthMenu: [10, 20, 30, { label: 'All', value: -1 }]
             });
         } );
+
+        $('.acPayDeleteBtn').on('click',async function (){
+            let id = $(this).data('id');
+            $('#accpDeletedId').val(id);
+            $('#accpDeleteModal').modal('show');
+            await getAccountsPayableList(id);
+        })
     }
 
 </script>

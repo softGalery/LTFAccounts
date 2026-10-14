@@ -135,3 +135,11 @@
     // Add more field values as needed
   }
 </script>
+<style>
+    #acountsPayableCreate .modal-dialog {
+        max-width: 40%;
+        width: 45%;
+        margin: 0 auto;
+    }
+
+</style>

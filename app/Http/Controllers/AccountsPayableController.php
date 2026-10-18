@@ -74,7 +74,7 @@ class AccountsPayableController extends Controller
             }
         }
 
-    public function deleteAccountsPayable(Request $request)
+public function deleteAccountsPayable(Request $request)
     {
         $user_id = Auth::id();
         $acp_id = $request->input('id');

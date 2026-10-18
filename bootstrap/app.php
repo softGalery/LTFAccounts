@@ -18,8 +18,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'asset-delete',
             'asset-update',
             'asset-by-id',
-            'create-accounts-payable',
-            'delete-accounts-payable'
+            'create-acconts-payable'
         ]);
     })
 

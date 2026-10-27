@@ -74,13 +74,12 @@
             });
         } );
 
-        $('.assetDeleteBtn').on('click',async function (){
+        $('.assetDeleteBtn').on('click', function (){
             let id= $(this).data('id');
             let path=$(this).data('path');
             $("#assetDelete").modal('show');         // Show delete modal
             $("#assetDeleteID").val(id);
             $("#assetDeleteFilePath").val(path);
-            await getAssetById(id, path);
             // get id into the delete modal input field
         })
 

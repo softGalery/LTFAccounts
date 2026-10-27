@@ -20,6 +20,13 @@ class AccountsPayableController extends Controller
         $user_id = auth::user()->id;
         return AccountsPayable::where('user_id', $user_id)->get();
     }
+    public function getAccountsPayableById(Request $request)
+    {
+        $user_id = auth::user()->id;
+        $accountsPayable_id = $request->input('id');
+        return AccountsPayable::where('id', $accountsPayable_id)->where('user_id', $user_id)->first();
+    }
+
     public function createAccountsPayable(Request $request)
         {
             $request->validate([
@@ -79,6 +86,58 @@ class AccountsPayableController extends Controller
         $user_id = Auth::id();
         $acp_id = $request->input('id');
         return AccountsPayable::where('id', $acp_id)->where('user_id', $user_id)->delete();
+    }
+
+    public function updateAccountsPayable(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string|max:255',
+            'invoice_number' => 'required|string|max:255',
+            'bill_date' => 'required|date',
+            'due_date' => 'required|date|after_or_equal:bill_date',
+            'total_amount' => 'required|numeric|min:0',
+            'paid_amount' => 'required|numeric|min:0|lte:total_amount',
+            'status' => 'required|string|max:255',
+            'note' => 'nullable|string|max:255'
+        ]);
+
+        try {
+            $user_id = auth::user()->id;
+            $acp_id = $request->input('id');
+
+            $totalAmount = (float) $request->input('total_amount');
+            $paidAmount = (float) $request->input('paid_amount');
+
+            // Calculate balance automatically
+            $balance = $totalAmount - $paidAmount;
+
+            $accountsPayable = AccountsPayable::where('id', $acp_id)->where('user_id', $user_id)->update([
+                'name' => $request->input('name'),
+                'description' => $request->input('description'),
+                'invoice_number' => $request->input('invoice_number'),
+                'bill_date' => $request->input('bill_date'),
+                'due_date' => $request->input('due_date'),
+                'total_amount' => $totalAmount,
+                'paid_amount' => $paidAmount,
+                'balance_amount' => $balance,
+                'status' => $request->input('status'),
+                'note' => $request->input('note')
+            ]);
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Accounts Payable updated successfully',
+                'data' => $accountsPayable
+            ], 200);
+
+        } catch (Exception $e) {
+
+            return response()->json([
+                'status' => 'failed',
+                'message' => 'Failed to update Accounts Payable'
+            ], 500);
+        }
     }
 
 }

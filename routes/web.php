@@ -30,7 +30,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/accounts-payable', [AccountsPayableController::class, 'index'])->name('accountsPayable.index');
     Route::get('/accounts-payable-list',[AccountsPayableController::class, 'listAccountsPayable'])->name('accountsPayable.getList');
     Route::Post('/create-acconts-payable',[AccountsPayableController::class, 'createAccountsPayable'])->name('accountsPayable.create');
+    Route::post('/asset-get-by-id', [AssetController::class, 'getAssetById'])->name('assetGetById');
     Route::POST('/delete-accounts-payable', [AccountsPayableController::class, 'deleteAccountsPayable'])->name('accountsPayable.delete');
+    Route::POST('/update-accounts-payable',[AccountsPayableController::class, 'updateAccountsPayable'])->name('accountsPayable.update');
+    Route::post('/accounts-payable-by-id', [AccountsPayableController::class, 'getAccountsPayableById'])->name('accountsPayable.getById');
 
 });
 

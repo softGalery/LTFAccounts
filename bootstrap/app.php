@@ -18,8 +18,12 @@ return Application::configure(basePath: dirname(__DIR__))
             'asset-delete',
             'asset-update',
             'asset-by-id',
+<<<<<<< HEAD
             'create-acconts-payable',
             'accounts-payable-by-id'
+=======
+            'create-acconts-payable'
+>>>>>>> origin/main
         ]);
     })
 

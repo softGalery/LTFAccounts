@@ -5,7 +5,11 @@
         <section class="panel">
             <div class="panel-header"><div><h2 class="h5 mb-1 section-title"><i class="bi bi-table" aria-hidden="true"></i><span>List of Accounts Payable</span></h2><p class="text-muted mb-0">Searchable responsive table for orders and customer data.</p></div>
                 <div class="create-asset">
+<<<<<<< HEAD
                     <button type="button" class="btn btn-success display-flex float-end" data-bs-toggle="modal" data-bs-target="#acountsPayableCreate">Add New Account payable</button>
+=======
+                    <button type="button" class="btn btn-success display-flex float-end" data-bs-toggle="modal" data-bs-target="#acountsPayableCreate">Add New Asset</button>
+>>>>>>> origin/main
                 </div>
             </div>
 
@@ -82,6 +86,7 @@
             $('#acpayDelete').modal('show');
             $("#accountsDeleteID").val(id);
         });
+<<<<<<< HEAD
 
         $('.acPayEditBtn').on('click',async function (){
             let id = $(this).data('id');
@@ -89,6 +94,8 @@
             $('#accountsPayableUpdateID').val(id);
             await getAccountsDetails(id);
         });
+=======
+>>>>>>> origin/main
     }
 
 </script>

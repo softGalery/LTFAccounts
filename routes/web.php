@@ -37,8 +37,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/accounts-payable-by-id', [AccountsPayableController::class, 'getAccountsPayableById'])->name('accountsPayable.getById');
 
     // This is liabilities section
+    Route::get('/liability', [LiabilityController::class, 'index'])->name('liability.index');
     Route::post('/create-liability', [LiabilityController::class, 'createLiability'])->name('liability.create');
-    Route::post('/liability-by-id', [LiabilityController::class, 'getLiabilityById'])->name('liability.getById');
+    Route::get('/get-liability', [LiabilityController::class, 'getLiabilty'])->name('liability.get');
 
 });
 

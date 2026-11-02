@@ -11,7 +11,15 @@ use Illuminate\Support\Facades\Auth;
 class LiabilityController extends Controller
 {
    public function index()
-   {}
+   {
+         return view('admin.pages.liability');
+   }
+
+   public function getLiabilty()
+   {
+    $user_id = Auth::id();
+    return Liability::where('user_id', $user_id)->get();
+   }
 
    // This section is for creating a new liability
    public function createLiability(Request $request)
@@ -30,14 +38,6 @@ class LiabilityController extends Controller
     try {
 
         $user_id = Auth::id();
-
-        if (!$user_id) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Unauthenticated user'
-            ], 401);
-        }
-
         $loan_amount = (float) $validatedData['loan_amount'];
         $interest_rate = (float) $validatedData['interest_rate'];
         $paid = (float) $validatedData['paid'];

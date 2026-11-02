@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountsPayableController;
 use App\Http\Controllers\AssetController;
+use App\Http\Controllers\LiabilityController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,10 @@ Route::middleware('auth')->group(function () {
     Route::POST('/delete-accounts-payable', [AccountsPayableController::class, 'deleteAccountsPayable'])->name('accountsPayable.delete');
     Route::POST('/update-accounts-payable',[AccountsPayableController::class, 'updateAccountsPayable'])->name('accountsPayable.update');
     Route::post('/accounts-payable-by-id', [AccountsPayableController::class, 'getAccountsPayableById'])->name('accountsPayable.getById');
+
+    // This is liabilities section
+    Route::post('/create-liability', [LiabilityController::class, 'createLiability'])->name('liability.create');
+    Route::post('/liability-by-id', [LiabilityController::class, 'getLiabilityById'])->name('liability.getById');
 
 });
 

@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/liability', [LiabilityController::class, 'index'])->name('liability.index');
     Route::post('/create-liability', [LiabilityController::class, 'createLiability'])->name('liability.create');
     Route::get('/get-liability', [LiabilityController::class, 'getLiabilty'])->name('liability.get');
+    Route::post('/delete-liability', [LiabilityController::class, 'deleteLiability'])->name('liability.delete');
 
 });
 

@@ -61,8 +61,8 @@
                     <td class="fw-semibold">${item['outstanding_amount']}</td>
                     <td class="fw-semibold">${item['notes']}</td>
                     <td class="fw-semibold">
-                        <button data-id="${item['id']}" class="btn acPayEditBtn btn-sm btn-outline-primary rounded-5" type="button" data-bs-toggle="modal" data-bs-target="#acPayUpdate">Edit</button>
-                        <button data-id="${item['id']}" class="btn acPayDeleteBtn btn-sm btn-outline-danger rounded-5" data-bs-toggle="modal" data-bs-target="#acPayDelete">Delete</button>
+                        <button data-id="${item['id']}" class="btn liabilityEditBtn btn-sm btn-outline-primary rounded-5" type="button" data-bs-toggle="modal" data-bs-target="#acPayUpdate">Edit</button>
+                        <button data-id="${item['id']}" class="btn liabilityDeleteBtn btn-sm btn-outline-danger rounded-5" data-bs-toggle="modal" data-bs-target="#acPayDelete">Delete</button>
                     </td>
                 </tr>
             `;
@@ -76,6 +76,13 @@
             });
         } );
 
+
+        $('.liabilityDeleteBtn').click(function()
+    {
+        let id = $(this).data('id');
+        $('#liabilityDelete').modal('show');
+        $('#liabilityIdDelete').val(id);
+    })
 
     }
 </script>

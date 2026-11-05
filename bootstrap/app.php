@@ -20,7 +20,8 @@ return Application::configure(basePath: dirname(__DIR__))
             'asset-by-id',
             'create-liability',
             'create-acconts-payable',
-            'accounts-payable-by-id'
+            'accounts-payable-by-id',
+            'delete-liability'
         ]);
     })
 

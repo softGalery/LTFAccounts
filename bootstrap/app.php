@@ -21,7 +21,8 @@ return Application::configure(basePath: dirname(__DIR__))
             'create-liability',
             'create-acconts-payable',
             'accounts-payable-by-id',
-            'delete-liability'
+            'delete-liability',
+            'update-liability'
         ]);
     })
 

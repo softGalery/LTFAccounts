@@ -21,6 +21,13 @@ class LiabilityController extends Controller
     return Liability::where('user_id', $user_id)->get();
    }
 
+   public function getLiabilityById(Request $request)
+   {
+     $user_id = Auth::id();
+     $liability_id = $request->input('id');
+     return Liability::where('id', $liability_id)->where('user_id', $user_id)->first();
+   }
+
    // This section is for creating a new liability
    public function createLiability(Request $request)
         {
@@ -147,7 +154,7 @@ class LiabilityController extends Controller
                     'status' => 'success',
                     'message' => 'Liability updated successfully',
                     'data' => $liabilityUpdate
-                ], 201);
+                ], 200);
 
             } catch (\Exception $e) {
 

@@ -3,4 +3,5 @@
     @include('admin.components.liability.index')
     @include('admin.components.liability.liability-create')
     @include('admin.components.liability.delete')
+    @include('admin.components.liability.liability-update')
 @endsection

@@ -42,6 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/get-liability', [LiabilityController::class, 'getLiabilty'])->name('liability.get');
     Route::post('/delete-liability', [LiabilityController::class, 'deleteLiability'])->name('liability.delete');
     Route::post('/update-liability', [LiabilityController::class, 'updateLiability'])->name('liability.update');
+    Route::post('/get-liability-by-id', [LiabilityController::class, 'getLiabilityById'])->name('liability.getById');
 
 });
 

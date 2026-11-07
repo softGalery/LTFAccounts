@@ -77,11 +77,19 @@
         } );
 
 
-        $('.liabilityDeleteBtn').click(function()
+    $('.liabilityDeleteBtn').click(function()
     {
         let id = $(this).data('id');
         $('#liabilityDelete').modal('show');
         $('#liabilityIdDelete').val(id);
+    })
+
+    $('.liabilityEditBtn').click(async function()
+    {
+        let id =$(this).data('id');
+        $('#liabilityUpdate').modal('show');
+        $('#liabilityUpdateID').val(id);
+        await fillupLiability(id);
     })
 
     }

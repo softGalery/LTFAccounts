@@ -56,6 +56,7 @@
                         <div class="form-check">
                             <input class="d-none" id="assetUpdateID">
                             <input class="d-none" id="assetUpdateFilePath">
+                        </div>
                     </div>
 
                 </form>

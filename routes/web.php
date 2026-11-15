@@ -47,6 +47,8 @@ Route::middleware('auth')->group(function () {
 
     // This is earnings section
     Route::post('/create-earning', [EarningController::class, 'create'])->name('earning.create');
+    Route::get('/earning', [EarningController::class, 'index'])->name('earning.index');
+    Route::get('/get-earnings', [EarningController::class, 'getEarnings'])->name('earning.get');
 
 });
 

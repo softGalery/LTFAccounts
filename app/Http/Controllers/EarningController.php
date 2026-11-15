@@ -11,7 +11,15 @@ use Illuminate\Support\Facades\File;
 class EarningController extends Controller
 {
     public function index()
-    {}
+    {
+        return view('admin.pages.earning');
+    }
+
+    public function getEarnings()
+    {
+        $user_id = Auth::id();
+        return Earning::where('user_id', $user_id)->get();
+    }
 
     public function create(Request $request)
     {

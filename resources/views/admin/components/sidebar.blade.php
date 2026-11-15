@@ -1,6 +1,6 @@
 <aside class="admin-sidebar" id="adminSidebar" aria-label="Main navigation">
     <div class="sidebar-header">
-        <a class="brand-mark" href="index.html" aria-label="adminHMD dashboard">
+        <a class="brand-mark" href="{{ url('/dashboard') }}" aria-label="adminHMD dashboard">
             <span class="brand-icon"><i class="bi bi-grid-1x2-fill" aria-hidden="true"></i></span>
             <span class="brand-copy">
             <span class="brand-title">adminHMD</span>
@@ -10,21 +10,21 @@
     </div>
 
     <nav class="sidebar-nav">
-        <a class="nav-link active" href="index.html" aria-current="page">
+        <a class="nav-link active" href="{{ url('/dashboard') }}" aria-current="page">
             <span class="nav-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
             <span class="nav-text">Dashboard</span>
         </a>
-        <a class="nav-link" href="users.html">
+        <a class="nav-link" href="{{ url('/asset') }}">
             <span class="nav-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
-            <span class="nav-text">Users</span>
+            <span class="nav-text">Assets</span>
         </a>
-        <a class="nav-link" href="add-user.html">
+        <a class="nav-link" href="{{ url('/accounts-payable') }}">
             <span class="nav-icon"><i class="bi bi-person-plus" aria-hidden="true"></i></span>
-            <span class="nav-text">Add User</span>
+            <span class="nav-text">Accounts Payable</span>
         </a>
-        <a class="nav-link" href="profile.html">
+        <a class="nav-link" href="{{ url('/liability') }}">
             <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span>
-            <span class="nav-text">Profile</span>
+            <span class="nav-text">Liability</span>
         </a>
         <a class="nav-link" href="charts.html">
             <span class="nav-icon"><i class="bi bi-bar-chart-line" aria-hidden="true"></i></span>

@@ -43,7 +43,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" id="lbClose" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" onclick="createLiability()" class="btn btn-primary">Save changes</button>
+        <button type="button" onclick="createLiability()" class="btn btn-primary">Add Liability</button>
       </div>
     </div>
   </div>

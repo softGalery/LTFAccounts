@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountsPayableController;
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\LiabilityController;
+use App\Http\Controllers\EarningController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/delete-liability', [LiabilityController::class, 'deleteLiability'])->name('liability.delete');
     Route::post('/update-liability', [LiabilityController::class, 'updateLiability'])->name('liability.update');
     Route::post('/get-liability-by-id', [LiabilityController::class, 'getLiabilityById'])->name('liability.getById');
+
+    // This is earnings section
+    Route::post('/create-earning', [EarningController::class, 'create'])->name('earning.create');
 
 });
 

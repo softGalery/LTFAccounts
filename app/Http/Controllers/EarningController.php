@@ -28,11 +28,10 @@ class EarningController extends Controller
             'description' => 'nullable|string|max:255',
             'amount' => 'required|numeric|min:0',
             'type' => 'required|in:cash,bank,accounts_receivable',
-            'earning_date' => 'required|date',
-            'user_id' => 'required|exists:users,id',
+            'earning_date' => 'required|date'
         ]);
         try {
-            $user_id = $request->input('user_id');
+            $user_id = Auth::id();
 
         $earning = Earning::create([
             'name' => $request->input('name'),

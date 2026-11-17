@@ -3,7 +3,7 @@
         <section class="panel">
             <div class="panel-header"><div><h2 class="h5 mb-1 section-title"><i class="bi bi-table" aria-hidden="true"></i><span>Earnings Table</span></h2><p class="text-muted mb-0"></p></div>
                 <div class="create-asset">
-                    <button type="button" class="btn btn-success display-flex float-end" data-bs-toggle="modal" data-bs-target="#assetCreate">Add Earning</button>
+                    <button type="button" class="btn btn-success display-flex float-end" data-bs-toggle="modal" data-bs-target="#earningCreate">Add Earning</button>
                 </div>
             </div>
 
@@ -51,12 +51,21 @@
                     <td class="fw-semibold">${earning['type']}</td>
                     <td class="fw-semibold">${earning['earning_date']}</td>
                     <td class="fw-semibold">
-                        <button data-id="${earning['id']}" class="btn assetEditBtn btn-sm btn-outline-primary rounded-5" type="button" data-bs-toggle="modal" data-bs-target="#assetUpdate">Edit</button>
-                        <button data-id="${earning['id']}" class="btn assetDeleteBtn btn-sm btn-outline-danger rounded-5" data-bs-toggle="modal" data-bs-target="#assetDelete">Delete</button>
+                        <button data-id="${earning['id']}" class="btn earningEditBtn btn-sm btn-outline-primary rounded-5" type="button" data-bs-toggle="modal" data-bs-target="#assetUpdate">Edit</button>
+                        <button data-id="${earning['id']}" class="btn earningDeleteBtn btn-sm btn-outline-danger rounded-5" data-bs-toggle="modal" data-bs-target="#assetDelete">Delete</button>
                     </td>
                  </tr>
             `
             tableList.append(row)
-        })
+        });
+        $(document).ready( function () {
+            $('#earningData').DataTable({
+                order: [[0, 'desc']],
+                lengthMenu: [10, 20, 30, { label: 'All', value: -1 }]
+            });
+        } );
+        
+
+
     }
 </script>

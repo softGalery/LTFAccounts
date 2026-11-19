@@ -2,4 +2,5 @@
 @section('content')
     @include('admin.components.earnings.index')
     @include('admin.components.earnings.create')
+    @include('admin.components.earnings.delete')
 @endsection

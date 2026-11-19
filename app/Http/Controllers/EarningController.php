@@ -21,6 +21,14 @@ class EarningController extends Controller
         return Earning::where('user_id', $user_id)->get();
     }
 
+    public function getEarningById(Request $request)
+    {
+        $user_id = Auth::id();
+        $earning_id = $request->input('id');
+
+        return Earning::where('user_id', $user_id)->where('id', $earning_id)->first();
+    }
+
     public function create(Request $request)
     {
         $request->validate([
@@ -55,4 +63,13 @@ class EarningController extends Controller
             ], 500);
         }
     }
+
+        public function earningDelete(Request $request)
+    {
+        $user_id = Auth::id();
+        $earning_id = $request->input('id');
+
+        return Earning::where('user_id', $user_id)->where('id', $earning_id)->delete();
+    }
+
 }

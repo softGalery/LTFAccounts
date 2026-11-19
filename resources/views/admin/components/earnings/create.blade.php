@@ -2,7 +2,7 @@
     <div class="modal-dialog col-12 col-lg-10">
         <div class="modal-content col-12">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Asset</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Earning</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body col-12">

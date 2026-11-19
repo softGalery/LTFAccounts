@@ -24,7 +24,9 @@ return Application::configure(basePath: dirname(__DIR__))
             'delete-liability',
             'update-liability',
             'get-liability-by-id',
-            'create-earning'
+            'create-earning',
+            'get-earning-by',
+            'delete-earning'
         ]);
     })
 

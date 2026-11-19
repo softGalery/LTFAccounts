@@ -65,7 +65,11 @@
             });
         } );
         
-
+        $('.earningDeleteBtn').on('click', function(){
+            let id = $(this).data('id');
+            $('#earningDelete').modal('show');
+            $('#earningDeleteId').val(id);
+        })
 
     }
 </script>

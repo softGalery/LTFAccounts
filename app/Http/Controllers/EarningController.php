@@ -64,12 +64,54 @@ class EarningController extends Controller
         }
     }
 
-        public function earningDelete(Request $request)
+    public function earningDelete(Request $request)
     {
         $user_id = Auth::id();
         $earning_id = $request->input('id');
 
         return Earning::where('user_id', $user_id)->where('id', $earning_id)->delete();
+    }
+
+    public function getById(Request $request)
+    {
+        $user_id = Auth::id();
+        $earning_id = $request->input('id');
+        return Earning::where('user_id', $user_id)->where('id', $earning_id)->first();
+    }
+
+    public function earninEdit(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:50',
+            'description' => 'nullable|string|max:255',
+            'amount' => 'required|numeric|min:0',
+            'type' => 'required|in:cash,bank,accounts_receivable',
+            'earning_date' => 'required|date'
+        ]);
+        try{
+            $user_id = Auth::id();
+            $earning_id = $request->input('id');
+
+            $earningUpdate = Earning::where('user_id', $user_id)->where('id', $earning_id)->update([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'amount' => $request->input('amount'),
+            'type' => $request->input('type'),
+            'earning_date' => $request->input('earning_date'),
+            ]);
+
+            return response()->json([
+            'status' => 'success', 
+            'message' => 'Earning Update successfully',
+            'data' => $earningUpdate
+            ], 200);
+        }
+        catch(\Exception $e){
+            return response()->json([
+                'status' => 'failed',
+                'message' => 'Earning to update liability',
+            ], 500);
+        }
     }
 
 }

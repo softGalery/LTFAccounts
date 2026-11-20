@@ -69,7 +69,13 @@
             let id = $(this).data('id');
             $('#earningDelete').modal('show');
             $('#earningDeleteId').val(id);
-        })
+        });
+        $('.earningEditBtn').on('click',async function(){
+            let id = $(this).data('id');
+            $('#earningEdit').modal('show');
+            $('#earningEditId').val(id);
+            await fillupForm(id);
+        });
 
     }
 </script>

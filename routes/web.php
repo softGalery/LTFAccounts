@@ -51,6 +51,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/get-earnings', [EarningController::class, 'getEarnings'])->name('earning.get');
     Route::post('/get-earning-by', [EarningController::class, 'getEarningById'])->name('by.is');
     Route::post('/delete-earning', [EarningController::class, 'earningDelete'])->name('earning.delete');
+    Route::post('/edit-earning', [EarningController::class, 'earninEdit'])->name('earning.edit');
+    Route::post('/get-earning-by-id', [EarningController::class, 'getById'])->name('get.earning.by.id');
 
 });
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Exception;
 
 class EarningController extends Controller
 {
@@ -106,7 +107,7 @@ class EarningController extends Controller
             'data' => $earningUpdate
             ], 200);
         }
-        catch(\Exception $e){
+        catch(Exception $e){
             return response()->json([
                 'status' => 'failed',
                 'message' => 'Earning to update liability',

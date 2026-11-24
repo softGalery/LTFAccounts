@@ -28,7 +28,8 @@ return Application::configure(basePath: dirname(__DIR__))
             'get-earning-by',
             'delete-earning',
             'edit-earning',
-            'get-earning-by-id'
+            'get-earning-by-id',
+            'expense-create'
         ]);
     })
 

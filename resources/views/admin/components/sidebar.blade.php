@@ -26,9 +26,9 @@
             <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span>
             <span class="nav-text">Liability</span>
         </a>
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{{ url('/earning') }}">
             <span class="nav-icon"><i class="bi bi-bar-chart-line" aria-hidden="true"></i></span>
-            <span class="nav-text">Charts</span>
+            <span class="nav-text">Earnings</span>
         </a>
         <a class="nav-link" href="tables.html">
             <span class="nav-icon"><i class="bi bi-table" aria-hidden="true"></i></span>

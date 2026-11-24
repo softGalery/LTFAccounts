@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountsPayableController;
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\LiabilityController;
 use App\Http\Controllers\EarningController;
+use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,13 +47,16 @@ Route::middleware('auth')->group(function () {
     Route::post('/get-liability-by-id', [LiabilityController::class, 'getLiabilityById'])->name('liability.getById');
 
     // This is earnings section
-    Route::post('/create-earning', [EarningController::class, 'create'])->name('earning.create');
     Route::get('/earning', [EarningController::class, 'index'])->name('earning.index');
+    Route::post('/create-earning', [EarningController::class, 'create'])->name('earning.create');
     Route::get('/get-earnings', [EarningController::class, 'getEarnings'])->name('earning.get');
     Route::post('/get-earning-by', [EarningController::class, 'getEarningById'])->name('by.is');
     Route::post('/delete-earning', [EarningController::class, 'earningDelete'])->name('earning.delete');
     Route::post('/edit-earning', [EarningController::class, 'earninEdit'])->name('earning.edit');
     Route::post('/get-earning-by-id', [EarningController::class, 'getById'])->name('get.earning.by.id');
+
+    // This is expenses section
+    Route::post('/expense-create', [ExpenseController::class, 'createExpense'])->name('create.expense');
 
 });
 

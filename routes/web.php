@@ -57,6 +57,8 @@ Route::middleware('auth')->group(function () {
 
     // This is expenses section
     Route::post('/expense-create', [ExpenseController::class, 'createExpense'])->name('create.expense');
+    Route::get('/expense-index', [ExpenseController::class, 'index'])->name('create.index');
+    Route::get('/all-expenses', [ExpenseController::class, 'getExpenses'])->name('get.expenses');
 
 });
 

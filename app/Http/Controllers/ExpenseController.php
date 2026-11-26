@@ -10,6 +10,16 @@ use App\Models\Expense;
 
 class ExpenseController extends Controller
 {
+    public function index()
+    {
+        return view('admin.pages.expenses');
+    }
+    public function getExpenses()
+    {
+        $user_id = Auth::id();
+        return Expense::where('user_id', $user_id)->get();
+    }
+
     public function createExpense(Request $request)
     {
         $request->validate([
